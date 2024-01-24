@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Logos</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript">
+        function updatePage(selectedSheet = "oem", currentSearchBoxValue = "") {
+            // 更新标签栏
+            var elements = document.querySelectorAll("header li");
+            elements.forEach(element => {
+                element.classList.remove("activate")
+            });
+            document.querySelector("#" + selectedSheet).classList.add("activate");
+            // 更新box
+            var elements = document.querySelectorAll(".box");
+            var reg = new RegExp(currentSearchBoxValue.replace(/[.*+?^${}()|[\]\\]/g, ""), "i");
+            elements.forEach(element => {
+                var txt = element.querySelector(".txt").innerHTML;
+                if (reg.test(txt) && element.classList.contains(selectedSheet)) {
+                    element.classList.add("show");
+                }
+                else { element.classList.remove("show"); };
+            });
+        };
+        function clickSheet(sheet) {
+            var currentSearchBoxValue = document.querySelector("#searchbox").value;
+            updatePage(selectedSheet = sheet, currentSearchBoxValue = currentSearchBoxValue);
+        };
+        function changeSearch() {
+            var selectedSheet = document.querySelector("ul li.activate").id;
+            var currentSearchBoxValue = document.querySelector("#searchbox").value;
+            updatePage(selectedSheet = selectedSheet, currentSearchBoxValue = currentSearchBoxValue);
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container clearfix">
+            <ul class="leftfix">
+                <!-- <li id="oem" onclick="clickSheet('oem')">OEM</li>
+                <li id="supplier" onclick="clickSheet('supplier')">Supplier</li>
+                <li id="icon" onclick="clickSheet('icon')">Icon</li>
+                <li id="model" onclick="clickSheet('model')">Model</li> -->
+                <!-- replacer flag sheet -->
+            </ul>
+            <!-- <a href="./logos/flag.zip" class="rightfix">下载国旗</a> -->
+            <form action="#" class="rightfix">
+                <input type="search" placeholder="输入关键字搜索" id="searchbox">
+            </form>
+        </div>
+    </header>
+
+    <div class="main clearfix">
+
+        <!-- <div class="box oem show">
+            <div class="img-box">
+                <img src="https://ww5vca.gitee.io/logos/oem/AION%20Hyper%20%E5%9F%83%E5%AE%89%20%E6%98%8A%E9%93%82%20%E9%9D%92%E8%89%B2.png"
+                    alt="AION Hyper 埃安 昊铂 青色 200x200 png">
+            </div>
+            <div class="txt txt-hidden">AION Hyper 埃安 昊铂 青色 200x200 png</div>
+        </div>
+        <div class="box supplier">
+            <div class="img-box">
+                <img src="https://ww5vca.gitee.io/logos/supplier/Alps%20Alpine%20%E9%98%BF%E5%B0%94%E5%8D%91%E6%96%AF%E9%98%BF%E5%B0%94%E6%B4%BE.png"
+                    alt="Alps Alpine 阿尔卑斯阿尔派 200x200 png">
+            </div>
+            <div class="txt txt-hidden">Alps Alpine 阿尔卑斯阿尔派 200x200 png</div>
+        </div>
+        <div class="box model show">
+            <div class="img-box">
+                <img src="https://ww5vca.gitee.io/logos/model/%5BArteon%5D%5B%E5%A4%A7%E4%BC%97%28%E8%BF%9B%E5%8F%A3%29%5D%5B%E4%B8%AD%E5%9E%8B%E8%BD%A6%5D%5B1757%5D.png"
+                    alt="DS汽车 DS 9 PHEV 中型car 4157 360x240 png">
+            </div>
+            <div class="txt txt-hidden">DS汽车 DS 9 PHEV 中型car 4157 360x240 png</div>
+        </div>
+        <div class="box icon">
+            <div class="img-box">
+                <img src="https://ww5vca.gitee.io/logos/icon/%E4%B8%9A%E5%8A%A1%E7%B3%BB%E7%BB%9F_%E7%94%B5%E5%AD%90.png"
+                    alt="业务系统_电子 200x200 png">
+            </div>
+            <div class="txt txt-hidden">电子 200x200 png</div>
+        </div> -->
+
+        <!-- replacer flag box -->
+    </div>
+
+    <script type="text/javascript">
+        updatePage(selectedSheet = "oem", currentSearchBoxValue = "");
+        var iptSearch = document.getElementById("searchbox");
+        iptSearch.addEventListener("input", changeSearch);
+    </script>
+
+</body>
+
+</html>
