@@ -65,8 +65,45 @@ header form input {
     height: 34px;
     border: 1px solid lightgrey;
     margin-top: 7px;
-    margin-left: 100px;
+    margin-left: 85px;
     padding: 0 5px;
+}
+
+header .bg-selector-group {
+    float: left;
+    width: 170px;
+    height: 32px;
+    margin-top: 7px;
+    margin-left: 85px;
+    /* background-color: red; */
+}
+
+header .bg-selector {
+    float: left;
+    height: 32px;
+    width: 32px;
+    border: 1px dashed #aaa;
+}
+
+header .bg-selector.selected {
+    outline: 3px solid #d3302d;
+    translate: 1px;
+}
+
+.bg-black-gray {
+    background-image: url("../images/black-gray.png");
+}
+.bg-gray-white {
+    background-image: url("../images/gray-white.png");
+}
+.bg-black {
+    background-color: black;
+}
+.bg-white {
+    background-color: white;
+}
+.bg-gray {
+    background-color: gray;
 }
 
 /* #endregion头部 */
@@ -93,10 +130,11 @@ header form input {
 .main .box .img-box {
     width: 120px;
     height: 120px;
-    background: url("../images/chess_black.png");
+    /* background: url("../images/black-gray.png"); */
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: 1px solid grey;
 }
 
 .main .box .img-box img {
